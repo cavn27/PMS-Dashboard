@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts'
 import "../App.css";
 
-function RadarGraph()
+function RadarGraphPhone()
 {
     const [sData, setSdata]= useState([]);
     useEffect( ()=>{
@@ -35,14 +35,14 @@ function RadarGraph()
                 width:'auto',
                 xaxis:{
                     // title:{text:"Categoría"},
-                    categories:['📆 Asistencia', '🔨 Eficiencia','✅ Responsabilidad', '🎯 Metas', '🫱🏼‍🫲🏼 Respeto']
+                    categories:['📆', '🔨','✅', '🎯', '🫱🏼‍🫲🏼']
                 },
                 yaxis:{
                     // title:{text:"Puntuación"}
-                    show: false              
+                    show: false
                 },
                 markers: {
-                    size: 2.5,
+                    size: 2,
                     hover: {
                       size: 5
                     }
@@ -51,29 +51,12 @@ function RadarGraph()
                     show: true,
                     width: 1.5
                 },
+                legend: {
+                    show: false,
+                },
                 chart: {
                     toolbar: {
-                        show: true,
-                        tools: {
-                            download: '⬇️',
-                            selection: false,
-                            zoom: '🔍',
-                            zoomin: '➕',
-                            zoomout: '➖',
-                            pan: false,
-                            reset: '🔄️'
-                        },
-                        export: {
-                            csv: {
-                              filename: 'Estadísticas Específicas',
-                            },
-                            svg: {
-                              filename: 'Estadísticas Específicas',
-                            },
-                            png: {
-                              filename: 'Estadísticas Específicas',
-                            }
-                        }
+                        show: false,
                     }
                 }
             }}
@@ -84,4 +67,4 @@ function RadarGraph()
     </React.Fragment>);
 }
 
-export default RadarGraph;
+export default RadarGraphPhone;

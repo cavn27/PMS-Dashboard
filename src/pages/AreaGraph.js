@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts'
 import "../App.css";
 
-function RadarGraph()
+function AreaGraph()
 {
     const [sData, setSdata]= useState([]);
     useEffect( ()=>{
@@ -24,32 +24,45 @@ function RadarGraph()
 
     return(<React.Fragment>
         <div className="Chart">
-          <h2> Estadísticas Específicas </h2>
-          <div className="Chart-body">       
+          <h2> Estadística Mensual  </h2>
+          <div className="Chart-body">        
             <Chart
-            type='radar'
+            type='area'
             series={sData}
             options={{
                 // title:{ text:"Productividad de Trabajadores"},
                 height:'auto',
                 width:'auto',
                 xaxis:{
-                    // title:{text:"Categoría"},
-                    categories:['📆 Asistencia', '🔨 Eficiencia','✅ Responsabilidad', '🎯 Metas', '🫱🏼‍🫲🏼 Respeto']
+                    //title:{text:"Categoría"},
+                    categories:['Enero', 'Febreo', 'Marzo', 'Abril', 'Mayo']
                 },
                 yaxis:{
-                    // title:{text:"Puntuación"}
-                    show: false              
+                    //title:{text:"Puntuación"},
+                    lines: { show: true }
+
                 },
-                markers: {
-                    size: 2.5,
-                    hover: {
-                      size: 5
+                animations: {
+                    enabled: true,
+                    easing: 'easeinout',
+                    speed: 800,
+                    animateGradually: {
+                        enabled: true,
+                        delay: 150
+                    },
+                    dynamicAnimation: {
+                        enabled: true,
+                        speed: 350
                     }
                 },
                 stroke: {
                     show: true,
-                    width: 1.5
+                    curve: 'smooth',
+                    width: 2,
+
+                },
+                dataLabels: {
+                    enabled: false,
                 },
                 chart: {
                     toolbar: {
@@ -65,13 +78,13 @@ function RadarGraph()
                         },
                         export: {
                             csv: {
-                              filename: 'Estadísticas Específicas',
+                              filename: 'Estadística Mensual',
                             },
                             svg: {
-                              filename: 'Estadísticas Específicas',
+                              filename: 'Estadística Mensual',
                             },
                             png: {
-                              filename: 'Estadísticas Específicas',
+                              filename: 'Estadística Mensual',
                             }
                         }
                     }
@@ -79,9 +92,9 @@ function RadarGraph()
             }}
             >
             </Chart>
-          </div>
+            </div>
         </div>
     </React.Fragment>);
 }
 
-export default RadarGraph;
+export default AreaGraph;

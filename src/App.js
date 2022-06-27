@@ -9,7 +9,6 @@ import './App.css';
 const App = () => {
   return (
     <Router>
-      <div className="Main-App">
         <Nav/>
         <div className="container">
           <Routes>
@@ -18,7 +17,6 @@ const App = () => {
             <Route path='/RadarGraph' element={<RadarGraph/>} />
           </Routes>
         </div>
-      </div>
     </Router>
   );
 }

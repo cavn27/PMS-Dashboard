@@ -27,10 +27,8 @@ h1 {
 }
 
 .Main-App {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #f7f6f3;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 nav {
@@ -90,11 +88,8 @@ nav {
 }
 
 .container {
-  display: flex;
-  padding: 0.8em 0.8em;
-  margin: 0.8em 0.8em;
-  border-radius: 1em;
-  background-color: #ffffff;
+  position: absolute;
+  width: 100%;
 }
 
 a {
@@ -103,14 +98,42 @@ a {
 }
 
 .Chart-container {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-around;
+  gap: 30px;
+  margin-bottom: 30px;
+  padding: 0.8em 0.8em;
+  margin: 0.8em 0.8em;
+  background-color: #fff;
 }
 
-.Chart {
-  width: 200%;
+.Chart-container-phone {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-around;
+  gap: 30px;
+  margin-bottom: 30px;
+  padding: 0.8em 0.8em;
+  margin: 0.8em 0.8em;
+  background-color: #fff;
+}
+
+.Chart {  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px 0.5px #0000003d, -5px -5px 20px 0.5px #0000003d;
+}
+
+.Chart-body {
+  align-items: center;
+  justify-content: space-around;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 footer {
@@ -129,7 +152,15 @@ footer {
 @media screen and (max-width: 768px) {
 
   .nav-item>li { display: none; }
-  .Chart-container { flex-direction: column }
-  .Chart { width: 100%; }
+  .Chart-container {
+    display: none;
+  }
+  .Chart-container-phone {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0px;
+    padding: 0em 0em;
+    margin: 0.5em 0.5em;
+  }
 
 }
