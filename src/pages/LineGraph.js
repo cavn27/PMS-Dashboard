@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts'
 import "../App.css";
 
-function RadarGraph()
+function LineGraph()
 {
     const [sData, setSdata]= useState([]);
     useEffect( ()=>{
@@ -25,20 +25,32 @@ function RadarGraph()
     return(<React.Fragment>
         <div>
           <h2>  </h2>          
-          <Chart 
+          <Chart
           className="Chart"
-          type='radar'
+          type='line'
           series={sData}
           options={{
             // title:{ text:"Productividad de Trabajadores"},
             xaxis:{
-                // title:{text:"Categoría"},
-                // categories:['Asistencia','Eficiencia','Responsabilidad', 'Metas', 'Respeto']
+                //title:{text:"Categoría"},
+                categories:['Asistencia', 'Eficiencia', 'Responsabilidad', 'Metas', 'Respeto']
             },
             yaxis:{
-                // title:{text:"Puntuación"}                 
-            } 
-
+                //title:{text:"Puntuación"}                 
+            },
+            animations: {
+                enabled: true,
+                easing: 'easeinout',
+                speed: 800,
+                animateGradually: {
+                    enabled: true,
+                    delay: 150
+                },
+                dynamicAnimation: {
+                    enabled: true,
+                    speed: 350
+                }
+            }
         }}
           >
           </Chart>
@@ -47,4 +59,4 @@ function RadarGraph()
     </React.Fragment>);
 }
 
-export default RadarGraph;
+export default LineGraph;

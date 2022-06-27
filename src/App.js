@@ -9,13 +9,15 @@ import './App.css';
 const App = () => {
   return (
     <Router>
-      <Nav/>
-      <div>
-        <Routes>
-          <Route exact path='/' element={<Home/>} />
-          <Route path='/DonutGraph' element={<DonutGraph/>} />
-          <Route path='/RadarGraph' element={<RadarGraph/>} />
-        </Routes>
+      <div className="Main-App">
+        <Nav/>
+        <div className="container">
+          <Routes>
+            <Route exact path='/' element={<Home/>} />
+            <Route path='/DonutGraph' element={<DonutGraph/>} />
+            <Route path='/RadarGraph' element={<RadarGraph/>} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );

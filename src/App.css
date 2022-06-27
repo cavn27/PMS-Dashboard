@@ -11,12 +11,6 @@ h1 {
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -32,38 +26,91 @@ h1 {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.App {
-  text-align: center;
+.Main-App {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #f7f6f3;
 }
 
 nav {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  min-height: 10vh;
-  background: #231f20;
+  min-height: 7.5vh;
+  width: 100%;
+  background: #00265a;
   color: white;
 }
 
 .nav-links {
-  width: 40%;
   display: flex;
+  position: absolute;
+  right: 1em;
+  width: 100%;
   justify-content: flex-end;
   align-items: center;
   list-style: none;
 }
 
+.nav-logo {
+  display: flex;
+  position: left;
+  margin-left: 1em;
+  padding: 0.4em 0.8em;
+  border-radius: 2em;
+  background-color: #e8e8e8;
+}
+
+.nav-item {
+  display: flex;
+  padding: 0.4em 0.5em;
+  border-radius: 0.4em;
+  margin-left: 10px;
+}
+
+.nav-item > li {
+  margin-left: 10px;
+  margin-top: -2.5px;
+}
+
+.nav-item:hover {
+  color: #8cc0cf;
+  background-color: #001f4a;
+  transition: 0.5s;
+}
+
+.nav-item:active {
+  color: #51737b;
+  background-color: #001f4a;
+}
+
+.nav-item:visited {
+  color: #51737b;
+  background-color: #001f4a;
+}
+
+.container {
+  display: flex;
+  padding: 0.8em 0.8em;
+  margin: 0.8em 0.8em;
+  border-radius: 1em;
+  background-color: #ffffff;
+}
+
 a {
   color: white;
   text-decoration: underline;
+}
+
+.Chart-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.Chart {
+  width: 200%;
 }
 
 footer {
@@ -73,4 +120,16 @@ footer {
   min-height: 15vh;
   background: #231f20;
   color: white;
+}
+
+@media only screen and (max-width: 1100px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .nav-item>li { display: none; }
+  .Chart-container { flex-direction: column }
+  .Chart { width: 100%; }
+
 }
