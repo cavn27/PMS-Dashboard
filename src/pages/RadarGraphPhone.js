@@ -63,6 +63,12 @@ function RadarGraphPhone()
             >
             </Chart>
           </div>
+          <div className="Best-employee">
+            <div className="gradient-text"> 
+                <span role="img" aria-label="star"> ⭐ </span>
+                Ximena Fowks 
+            </div>
+          </div>
         </div>
     </React.Fragment>);
 }

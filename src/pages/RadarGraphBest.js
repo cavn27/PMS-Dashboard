@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts'
 import "../App.css";
 
-function AreaGraph()
+function RadarGraphBest()
 {
     const [sData, setSdata]= useState([]);
     useEffect( ()=>{
@@ -24,32 +24,32 @@ function AreaGraph()
 
     return(<React.Fragment>
         <div className="Chart">
-          <h2> Estadística Mensual  </h2>
-          <div className="Chart-body">        
+          <h2> Mejor Trabajador <span role="img" aria-label="celebrate"> 🎉 </span> </h2>
+          <div className="Chart-body">       
             <Chart
-            type='area'
+            type='radar'
             series={sData}
             options={{
                 // title:{ text:"Productividad de Trabajadores"},
                 height:'auto',
                 width:'auto',
                 xaxis:{
-                    //title:{text:"Categoría"},
-                    categories:['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo']
+                    // title:{text:"Categoría"},
+                    categories:['📆', '🔨','✅', '🎯', '🫱🏼‍🫲🏼']
                 },
                 yaxis:{
-                    //title:{text:"Puntuación"},
-                    lines: { show: true }
-
+                    // title:{text:"Puntuación"}
+                    show: false              
+                },
+                markers: {
+                    size: 2.5,
+                    hover: {
+                      size: 5
+                    }
                 },
                 stroke: {
                     show: true,
-                    curve: 'smooth',
-                    width: 2,
-
-                },
-                dataLabels: {
-                    enabled: false,
+                    width: 1.5
                 },
                 chart: {
                     toolbar: {
@@ -65,23 +65,32 @@ function AreaGraph()
                         },
                         export: {
                             csv: {
-                              filename: 'Estadística Mensual',
+                              filename: 'Estadísticas Específicas',
                             },
                             svg: {
-                              filename: 'Estadística Mensual',
+                              filename: 'Estadísticas Específicas',
                             },
                             png: {
-                              filename: 'Estadística Mensual',
+                              filename: 'Estadísticas Específicas',
                             }
                         }
                     }
+                },
+                legend: {
+                    show: false,
                 }
             }}
             >
             </Chart>
+          </div>
+          <div className="Best-employee">
+            <div className="gradient-text"> 
+                <span role="img" aria-label="star"> ⭐ </span>
+                Ximena Fowks 
             </div>
+          </div>
         </div>
     </React.Fragment>);
 }
 
-export default AreaGraph;
+export default RadarGraphBest;

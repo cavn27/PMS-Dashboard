@@ -3,8 +3,9 @@ import React from 'react';
 // import Chart from 'react-apexcharts'
 import AreaGraph from "./AreaGraph";
 import LineGraphPhone from "./LineGraphPhone";
-import RadarGraph from "./RadarGraph";
+import RadarGraphBest from "./RadarGraphBest";
 import RadarGraphPhone from "./RadarGraphPhone";
+import CalendarDiv from "../Calendar"
 import "../App.css";
 
 const Home = () => {
@@ -12,7 +13,12 @@ const Home = () => {
         <div className="Main-App">
             <div className='Chart-container'>
                 <AreaGraph />
-                <RadarGraph />
+                <div className='Right-Chart-container'>
+                    <div className='Calendar-container'>
+                        <CalendarDiv />
+                    </div>
+                    <RadarGraphBest />
+                </div>
             </div>
             <div className='Chart-container-phone'>
                 <LineGraphPhone />
