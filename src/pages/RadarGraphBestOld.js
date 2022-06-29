@@ -3,15 +3,13 @@ import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts'
 import "../App.css";
 
-import Prueba1 from './Prueba1.js';
-
-function RadarGraphPhone()
+function RadarGraphBest()
 {
     const [sData, setSdata]= useState([]);
     useEffect( ()=>{
         const getvaluedata= async()=>{
             const newvalue=[];
-            const reqData= await fetch("https://opensheet.elk.sh/1fkzm7-DKoNwEuSNts1S-Xhbf-tJH0OAqKjT9EekHfIc/BestEmployee");
+            const reqData= await fetch("https://opensheet.elk.sh/1fkzm7-DKoNwEuSNts1S-Xhbf-tJH0OAqKjT9EekHfIc/Sheet2");
             const resData= await reqData.json();
             // console.log(resData);
 
@@ -26,7 +24,7 @@ function RadarGraphPhone()
 
     return(<React.Fragment>
         <div className="Chart">
-          <h2> Mejor Trabajador </h2>
+          <h2> Mejor Trabajador <span role="img" aria-label="celebrate"> 🎉 </span> </h2>
           <div className="Chart-body">       
             <Chart
             type='radar'
@@ -41,10 +39,10 @@ function RadarGraphPhone()
                 },
                 yaxis:{
                     // title:{text:"Puntuación"}
-                    show: false
+                    show: false              
                 },
                 markers: {
-                    size: 2,
+                    size: 2.5,
                     hover: {
                       size: 5
                     }
@@ -53,13 +51,33 @@ function RadarGraphPhone()
                     show: true,
                     width: 1.5
                 },
-                legend: {
-                    show: false,
-                },
                 chart: {
                     toolbar: {
-                        show: false,
+                        show: true,
+                        tools: {
+                            download: '⬇️',
+                            selection: false,
+                            zoom: '🔍',
+                            zoomin: '➕',
+                            zoomout: '➖',
+                            pan: false,
+                            reset: '🔄️'
+                        },
+                        export: {
+                            csv: {
+                              filename: 'Estadísticas Específicas',
+                            },
+                            svg: {
+                              filename: 'Estadísticas Específicas',
+                            },
+                            png: {
+                              filename: 'Estadísticas Específicas',
+                            }
+                        }
                     }
+                },
+                legend: {
+                    show: false,
                 }
             }}
             >
@@ -67,11 +85,12 @@ function RadarGraphPhone()
           </div>
           <div className="Best-employee">
             <div className="gradient-text"> 
-                <Prueba1 />
+                <span role="img" aria-label="star"> ⭐ </span>
+                Ximena Fowks 
             </div>
           </div>
         </div>
     </React.Fragment>);
 }
 
-export default RadarGraphPhone;
+export default RadarGraphBest;

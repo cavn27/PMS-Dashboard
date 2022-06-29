@@ -35,10 +35,10 @@ function Donut()
                 width={850}
                 height={550}
 
-                series={ Asistencia }                
+                series={ Asistencia }
 
                 options={{
-                        title:{ text:"Employee PieChart" },
+                        // title:{ text:"Employee PieChart" },
                         noData:{text:"Empty Data"},
                         // colors:["#f90000","#f0f"],
                         labels:Empleado

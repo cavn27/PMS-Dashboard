@@ -3,24 +3,26 @@ import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts'
 import "../App.css";
 
+import Prueba1 from './Prueba1.js';
+
 function RadarGraphBest()
 {
     const [sData, setSdata]= useState([]);
     useEffect( ()=>{
         const getvaluedata= async()=>{
             const newvalue=[];
-            const reqData= await fetch("https://opensheet.elk.sh/1fkzm7-DKoNwEuSNts1S-Xhbf-tJH0OAqKjT9EekHfIc/Sheet2");
+            const reqData= await fetch("https://opensheet.elk.sh/1fkzm7-DKoNwEuSNts1S-Xhbf-tJH0OAqKjT9EekHfIc/BestEmployee");
             const resData= await reqData.json();
             // console.log(resData);
+
             for(let i=0; i < resData.length; i++)
             {
                 newvalue.push({name:resData[i].Empleado, data:[resData[i].Asistencia, resData[i].Eficiencia, resData[i].Responsabilidad, resData[i].Metas, resData[i].Respeto] });   
             }
             setSdata(newvalue);
-
         }
         getvaluedata();
-    },[]);   
+    },[]);
 
     return(<React.Fragment>
         <div className="Chart">
@@ -35,12 +37,13 @@ function RadarGraphBest()
                 width:'auto',
                 xaxis:{
                     // title:{text:"Categoría"},
-                    categories:['📆', '🔨','✅', '🎯', '🫱🏼‍🫲🏼']
+                    categories:['📆 Asistencia', '🔨 Eficiencia','✅ Responsabilidad', '🎯 Metas', '🫱🏼‍🫲🏼 Respeto']
                 },
                 yaxis:{
                     // title:{text:"Puntuación"}
-                    show: false              
+                    show: false,      
                 },
+                labels:sData,             
                 markers: {
                     size: 2.5,
                     hover: {
@@ -78,6 +81,9 @@ function RadarGraphBest()
                 },
                 legend: {
                     show: false,
+                },
+                dataLabels: {
+                    enabled: false,
                 }
             }}
             >
@@ -85,8 +91,7 @@ function RadarGraphBest()
           </div>
           <div className="Best-employee">
             <div className="gradient-text"> 
-                <span role="img" aria-label="star"> ⭐ </span>
-                Ximena Fowks 
+                <Prueba1 /> 
             </div>
           </div>
         </div>
