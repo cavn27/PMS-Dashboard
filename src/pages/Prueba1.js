@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "../App.css";
+import { HiOutlineExternalLink } from 'react-icons/hi';
 
 class Prueba1 extends Component {
     
@@ -49,8 +50,16 @@ class Prueba1 extends Component {
 
                         </div>
                         */
-                        <div key={ID}>
-                            <p> <span role="img" aria-label="star"> ⭐ </span> {Empleado} </p>
+                        <div className="be-container" key={ID}>
+                                <a href="/Trabajadores" className="best-employee-div">
+                                    <p>
+                                        {Empleado}
+                                        &nbsp;
+                                        <span className="emoji">
+                                            <HiOutlineExternalLink />
+                                        </span>
+                                    </p>
+                                </a>
                         </div>
                         );
                     })

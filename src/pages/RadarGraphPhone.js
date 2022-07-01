@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts'
 import "../App.css";
 
-import Prueba1 from './Prueba1.js';
-
 function RadarGraphPhone()
 {
     const [sData, setSdata]= useState([]);
@@ -25,8 +23,8 @@ function RadarGraphPhone()
     },[]);   
 
     return(<React.Fragment>
-        <div className="Chart">
-          <h2> Mejor Trabajador </h2>
+        <div className="Chart" style={{backgroundColor:'#fff9dd', border:'1px solid #b29930'}}>
+        <p className="be-title"> Mejor Trabajador <span role="img" aria-label="celebrate"> 🎉 </span> </p>
           <div className="Chart-body">       
             <Chart
             type='radar'
@@ -58,17 +56,24 @@ function RadarGraphPhone()
                 },
                 chart: {
                     toolbar: {
-                        show: false,
+                        show: true,
+                        tools: {
+                            download: '⬇️',
+                        }
+                    }
+                },
+                plotOptions: {
+                    radar: {
+                        polygons: {
+                            strokeColors: '#e7d279',
+                            strokeWidth: 1,
+                            connectorColors: '#e7d279',
+                        }
                     }
                 }
             }}
             >
             </Chart>
-          </div>
-          <div className="Best-employee">
-            <div className="gradient-text"> 
-                <Prueba1 />
-            </div>
           </div>
         </div>
     </React.Fragment>);

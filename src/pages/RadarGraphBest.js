@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts'
 import "../App.css";
 
-import Prueba1 from './Prueba1.js';
-
 function RadarGraphBest()
 {
     const [sData, setSdata]= useState([]);
@@ -25,8 +23,8 @@ function RadarGraphBest()
     },[]);
 
     return(<React.Fragment>
-        <div className="Chart">
-          <h2> Mejor Trabajador <span role="img" aria-label="celebrate"> 🎉 </span> </h2>
+        <div className="Chart" style={{backgroundColor:'#fff9dd', border:'1px solid #b29930'}}>
+        <p className="be-title"> Mejor Trabajador <span role="img" aria-label="celebrate"> 🎉 </span> </p>
           <div className="Chart-body">       
             <Chart
             type='radar'
@@ -37,13 +35,21 @@ function RadarGraphBest()
                 width:'auto',
                 xaxis:{
                     // title:{text:"Categoría"},
-                    categories:['📆 Asistencia', '🔨 Eficiencia','✅ Responsabilidad', '🎯 Metas', '🫱🏼‍🫲🏼 Respeto']
+                    categories:['📆 Asistencia', '🔨 Eficiencia','✅ Responsabilidad', '🎯 Metas', '🫱🏼‍🫲🏼 Respeto'],
+                    labels: {
+                        show: true,
+                        style: {
+                            colors: ["#a99029", "#a99029", "#a99029", "#a99029", "#a99029"],
+                            fontSize: "11px",
+                            fontFamily: 'Arial'
+                          }
+                    }
                 },
                 yaxis:{
                     // title:{text:"Puntuación"}
                     show: false,      
                 },
-                labels:sData,             
+                labels:sData,
                 markers: {
                     size: 2.5,
                     hover: {
@@ -84,15 +90,19 @@ function RadarGraphBest()
                 },
                 dataLabels: {
                     enabled: false,
+                },
+                plotOptions: {
+                    radar: {
+                        polygons: {
+                            strokeColors: '#e7d279',
+                            strokeWidth: 1,
+                            connectorColors: '#e7d279',
+                        }
+                    }
                 }
             }}
             >
             </Chart>
-          </div>
-          <div className="Best-employee">
-            <div className="gradient-text"> 
-                <Prueba1 /> 
-            </div>
           </div>
         </div>
     </React.Fragment>);

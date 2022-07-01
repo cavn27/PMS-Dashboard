@@ -9,7 +9,7 @@ function LineGraphPhone()
     useEffect( ()=>{
         const getvaluedata= async()=>{
             const newvalue=[];
-            const reqData= await fetch("https://opensheet.elk.sh/1fkzm7-DKoNwEuSNts1S-Xhbf-tJH0OAqKjT9EekHfIc/Sheet2");
+            const reqData= await fetch("https://opensheet.elk.sh/1fkzm7-DKoNwEuSNts1S-Xhbf-tJH0OAqKjT9EekHfIc/Metrics");
             const resData= await reqData.json();
             // console.log(resData);
             for(let i=0; i < resData.length; i++)
@@ -23,8 +23,8 @@ function LineGraphPhone()
     },[]);   
 
     return(<React.Fragment>
-        <div className="Chart">
-          <h2> Estadística Mensual  </h2>
+        <div className="Chart" style={{border:'2px solid #eceae8'}}>
+          <p> Estadística Mensual </p>
           <div className="Chart-body">        
             <Chart
             type='line'

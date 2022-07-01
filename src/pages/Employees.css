@@ -1,0 +1,15 @@
+.container{
+    display: block;
+    position: relative;
+  }
+  .left{
+    width: 200px;
+    vertical-align: top;
+    position: fixed;
+  }
+  .right{
+    background-color: yellow;
+    left: 200px;
+    width: 400px;
+    position: absolute;
+  }

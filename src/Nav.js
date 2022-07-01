@@ -30,7 +30,7 @@ function Nav() {
                         color: "white",
                         textDecoration: "none"
                     }}
-                    to="/DonutGraph"
+                    to="/Trabajadores"
                 >
                     <div className="nav-item">
                         <HiUserGroup />
@@ -44,7 +44,7 @@ function Nav() {
                         color: "white",
                         textDecoration: "none"
                     }}
-                    to="/RadarGraph"
+                    to="/Employees"
                 >
                     <div className="nav-item">
                         <HiUserGroup />
