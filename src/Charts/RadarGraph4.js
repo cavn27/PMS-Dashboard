@@ -3,13 +3,13 @@ import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts'
 import "../App.css";
 
-function RadarGraphPhone()
+function RadarGraphBest()
 {
     const [sData, setSdata]= useState([]);
     useEffect( ()=>{
         const getvaluedata= async()=>{
             const newvalue=[];
-            const reqData= await fetch("https://opensheet.elk.sh/1fkzm7-DKoNwEuSNts1S-Xhbf-tJH0OAqKjT9EekHfIc/BestEmployee");
+            const reqData= await fetch("https://opensheet.elk.sh/1fkzm7-DKoNwEuSNts1S-Xhbf-tJH0OAqKjT9EekHfIc/Employee4");
             const resData= await reqData.json();
             // console.log(resData);
 
@@ -20,7 +20,7 @@ function RadarGraphPhone()
             setSdata(newvalue);
         }
         getvaluedata();
-    },[]);   
+    },[]);
 
     return(<React.Fragment>
         <div className="Chart" style={{backgroundColor:'#fff9dd', border:'1px solid #b29930'}}>
@@ -35,14 +35,23 @@ function RadarGraphPhone()
                 width:'auto',
                 xaxis:{
                     // title:{text:"Categoría"},
-                    categories:['📆', '🔨','✅', '🎯', '🫱🏼‍🫲🏼']
+                    categories:['📆 Asistencia', '🔨 Eficiencia','✅ Responsabilidad', '🎯 Metas', '🫱🏼‍🫲🏼 Respeto'],
+                    labels: {
+                        show: true,
+                        style: {
+                            colors: ["#a99029", "#a99029", "#a99029", "#a99029", "#a99029"],
+                            fontSize: "11px",
+                            fontFamily: 'Arial'
+                          }
+                    }
                 },
                 yaxis:{
                     // title:{text:"Puntuación"}
-                    show: false
+                    show: false,      
                 },
+                labels:sData,
                 markers: {
-                    size: 2,
+                    size: 2.5,
                     hover: {
                       size: 5
                     }
@@ -51,16 +60,36 @@ function RadarGraphPhone()
                     show: true,
                     width: 1.5
                 },
-                legend: {
-                    show: false,
-                },
                 chart: {
                     toolbar: {
                         show: true,
                         tools: {
                             download: '⬇️',
+                            selection: false,
+                            zoom: '🔍',
+                            zoomin: '➕',
+                            zoomout: '➖',
+                            pan: false,
+                            reset: '🔄️'
+                        },
+                        export: {
+                            csv: {
+                              filename: 'Estadísticas Específicas',
+                            },
+                            svg: {
+                              filename: 'Estadísticas Específicas',
+                            },
+                            png: {
+                              filename: 'Estadísticas Específicas',
+                            }
                         }
                     }
+                },
+                legend: {
+                    show: false,
+                },
+                dataLabels: {
+                    enabled: false,
                 },
                 plotOptions: {
                     radar: {
@@ -79,4 +108,4 @@ function RadarGraphPhone()
     </React.Fragment>);
 }
 
-export default RadarGraphPhone;
+export default RadarGraphBest;

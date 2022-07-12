@@ -9,7 +9,7 @@ function RadarGraphBest()
     useEffect( ()=>{
         const getvaluedata= async()=>{
             const newvalue=[];
-            const reqData= await fetch("https://opensheet.elk.sh/1fkzm7-DKoNwEuSNts1S-Xhbf-tJH0OAqKjT9EekHfIc/BestEmployee");
+            const reqData= await fetch("https://opensheet.elk.sh/1fkzm7-DKoNwEuSNts1S-Xhbf-tJH0OAqKjT9EekHfIc/Employee3");
             const resData= await reqData.json();
             // console.log(resData);
 

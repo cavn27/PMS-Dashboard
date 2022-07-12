@@ -1,13 +1,14 @@
 import React from 'react';
 // import axios from 'axios';
 // import Chart from 'react-apexcharts'
-import AreaGraph from "./AreaGraph";
-import LineGraphPhone from "./LineGraphPhone";
-import RadarGraphBest from "./RadarGraphBest";
-import RadarGraphPhone from "./RadarGraphPhone";
-import CalendarDiv from "../Calendar"
+import AreaGraph from "../Charts/AreaGraph";
+import LineGraphPhone from "../Charts/LineGraphPhone";
+import RadarGraphBest from "../Charts/RadarGraphBest";
+import RadarGraphPhone from "../Charts/RadarGraphPhone";
+import EmployeesCard from "./EmployeesCard"
 
-import Prueba1 from './Prueba1.js';
+import { HiExternalLink } from 'react-icons/hi';
+
 import "../App.css";
 
 const Home = () => {
@@ -17,17 +18,25 @@ const Home = () => {
                 <AreaGraph />
                 <div className='Right-Chart-container'>
 
+                    <div className='Best-employee-label'>
+                        <p> Mejor Trabajador <span role="img" aria-label="celebrate"> 🎉 </span> </p>
+                    </div>
+
                     <div className="Best-employee">
                         <div className='r-graph'>
                             <RadarGraphBest />
                         </div>
-                        <div className="be-text"> 
-                            <Prueba1 /> 
+                        <div className="be-text">
+                            <div className="be-container">
+                                <a href="/Employees" className="best-employee-div">
+                                    <p> Abrir <HiExternalLink/> </p>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div className='Calendar-container'>
-                        <CalendarDiv />
+                    <div className="Employees-list">
+                        <EmployeesCard />                        
                     </div>
                     
                 </div>
@@ -36,9 +45,18 @@ const Home = () => {
                 <LineGraphPhone />
 
                 <div className="Best-employee">
+
+                    <div className='Best-employee-label'>
+                        <p> Mejor Trabajador <span role="img" aria-label="celebrate"> 🎉 </span> </p>
+                    </div>
+
                     <RadarGraphPhone />
-                    <div className="be-text"> 
-                        <Prueba1 /> 
+                    <div className="be-text">
+                        <div className="be-container">
+                            <a href="/Employees" className="best-employee-div">
+                                    <p> Abrir <HiExternalLink/> </p>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import "../App.css";
-import { HiOutlineExternalLink } from 'react-icons/hi';
 
-class Prueba1 extends Component {
+class Employee2 extends Component {
     
     state = {
         isLoading: true,
@@ -13,7 +12,7 @@ class Prueba1 extends Component {
         this.setState({
             loading: true
         }, () => {
-            fetch("https://opensheet.elk.sh/1fkzm7-DKoNwEuSNts1S-Xhbf-tJH0OAqKjT9EekHfIc/BestEmployee").then(res => res.json()).then(result => this.setState({
+            fetch("https://opensheet.elk.sh/1fkzm7-DKoNwEuSNts1S-Xhbf-tJH0OAqKjT9EekHfIc/Employee2").then(res => res.json()).then(result => this.setState({
                 loading: false,
                 users: result
             })).catch(console.log);
@@ -36,7 +35,6 @@ class Prueba1 extends Component {
                 } </p> : null}  {
                     users.map(user => {
                         const {
-                            ID,
                             Empleado
                         } = user;
                         return (
@@ -50,17 +48,9 @@ class Prueba1 extends Component {
 
                         </div>
                         */
-                        <div className="be-container" key={ID}>
-                                <a href="/Trabajadores" className="best-employee-div">
-                                    <p>
-                                        {Empleado}
-                                        &nbsp;
-                                        <span className="emoji">
-                                            <HiOutlineExternalLink />
-                                        </span>
-                                    </p>
-                                </a>
-                        </div>
+                        <>
+                        {Empleado}
+                        </>
                         );
                     })
                 }
@@ -69,4 +59,4 @@ class Prueba1 extends Component {
 }
 
 
-export default Prueba1;
+export default Employee2;

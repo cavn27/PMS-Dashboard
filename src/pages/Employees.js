@@ -1,10 +1,13 @@
-import React from "react";
-import "../App.css";
+import React from 'react';
+import '../App.css';
+import './Employees.css';
+import BestEmployeeTab from './BestEmployeeTab';
 
-const Employees = () => {
+function Employees() {
   return (
     <div>
-      <h3> Trabajadores </h3>
+      <h1>Trabajadores</h1>
+      <BestEmployeeTab/>
     </div>
   );
 }
